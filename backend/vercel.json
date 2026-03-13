@@ -3,3 +3,18 @@
     { "source": "/(.*)", "destination": "/api/server" }
   ]
 }
+
+{
+  "builds": [
+    {
+      "src": "server.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "server.py"
+    }
+  ]
+}
