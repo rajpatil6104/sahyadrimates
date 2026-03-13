@@ -3,10 +3,8 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
-'''change after deployment'''
-from script.seed_data import seed_function # Adjust this import to match your script
-
 import os
+import importlib.util
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
@@ -359,13 +357,6 @@ async def get_destinations():
     return result
 
 #change this 
-@app.get("/run-my-seed-now")
-def trigger_seed():
-    try:
-        seed_function() # Call the function that handles the logic
-        return {"message": "Database seeded successfully!"}
-    except Exception as e:
-        return {"error": str(e)}
 
 @api_router.get("/categories")
 async def get_categories():
@@ -395,3 +386,19 @@ logger = logging.getLogger(__name__)
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()
+
+#delet after work is done
+@app.get("/temp-seed-database")
+def run_seed_script():
+    # Path to your seed file
+    script_path = os.path.join(os.path.dirname(__file__), 'script', 'seed_data.py')
+    
+    try:
+        # This dynamically loads and runs the seed_data.py file
+        spec = importlib.util.spec_from_file_location("seed_data", script_path)
+        seed_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(seed_module)
+        
+        return {"status": "success", "message": "Seed script executed successfully!"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
