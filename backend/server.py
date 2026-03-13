@@ -3,6 +3,9 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
+'''change after deployment'''
+from script.seed_data import seed_function # Adjust this import to match your script
+
 import os
 import logging
 from pathlib import Path
@@ -354,6 +357,15 @@ async def get_destinations():
             'image_url': tour['image_url'] if tour else ''
         })
     return result
+
+#change this 
+@app.get("/run-my-seed-now")
+def trigger_seed():
+    try:
+        seed_function() # Call the function that handles the logic
+        return {"message": "Database seeded successfully!"}
+    except Exception as e:
+        return {"error": str(e)}
 
 @api_router.get("/categories")
 async def get_categories():
