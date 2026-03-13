@@ -391,7 +391,7 @@ async def shutdown_db_client():
 @app.get("/temp-seed-database")
 def run_seed_script():
     # Path to your seed file
-    script_path = os.path.join(os.path.dirname(__file__), 'script', 'seed_data.py')
+    script_path = os.path.join(os.path.dirname(__file__), 'scripts', 'seed_data.py')
     
     try:
         # This dynamically loads and runs the seed_data.py file
