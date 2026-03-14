@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
+import importlib.util
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
@@ -356,6 +357,8 @@ async def get_destinations():
         })
     return result
 
+#change this 
+
 @api_router.get("/categories")
 async def get_categories():
     categories = await db.tours.distinct('category')
@@ -386,3 +389,19 @@ async def shutdown_db_client():
     client.close()
     
 app.mount("/images", StaticFiles(directory="../images"), name="images")
+
+#delet after work is done
+@app.get("/temp-seed-database")
+def run_seed_script():
+    # Path to your seed file
+    script_path = os.path.join(os.path.dirname(__file__), 'scripts', 'seed_data.py')
+    
+    try:
+        # This dynamically loads and runs the seed_data.py file
+        spec = importlib.util.spec_from_file_location("seed_data", script_path)
+        seed_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(seed_module)
+        
+        return {"status": "success", "message": "Seed script executed successfully!"}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
