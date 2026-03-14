@@ -9,7 +9,10 @@ import TourCard from '../components/TourCard';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 
+
+
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export default function Home() {
   const [featuredTours, setFeaturedTours] = useState([]);
@@ -53,7 +56,7 @@ export default function Home() {
       <section className="relative min-h-screen  flex items-center justify-center" data-testid="hero-section">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.pexels.com/photos/35455016/pexels-photo-35455016.jpeg"
+            src={`${BACKEND_URL}/images/hero2.png`}
             alt="Majestic Himalayas"
             className="w-full h-full object-cover"
           />
@@ -80,7 +83,7 @@ export default function Home() {
             Explore 150+ destinations across India with expert guides
           </motion.p>
 
-          {/* Floating Search Bar */}
+          {/* Floating Search Bar
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -107,7 +110,7 @@ export default function Home() {
                 Search
               </Button>
             </div>
-          </motion.div>
+          </motion.div> */}
         </div>
       </section>
 
@@ -155,7 +158,7 @@ export default function Home() {
                   className="relative h-96 rounded-3xl overflow-hidden group cursor-pointer"
                 >
                   <img
-                    src={dest.image_url}
+                    src={`${BACKEND_URL}${dest.image_url}`}
                     alt={dest.name}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />

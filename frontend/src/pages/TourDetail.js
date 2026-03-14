@@ -498,6 +498,7 @@ import {
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '../components/ui/accordion';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export default function TourDetail() {
   const { id } = useParams();
@@ -622,9 +623,9 @@ Please confirm the availability for these dates.`;
       <Navbar />
 
       {/* Hero Image */}
-      <div className="relative h-[60vh] mt-20" data-testid="tour-hero">
+      <div className="relative h-[60vh]" data-testid="tour-hero">
         <img
-          src={tour.image_url}
+          src={`${BACKEND_URL}${tour.image_url}`}
           alt={tour.title}
           className="w-full h-full object-cover"
         />
@@ -689,7 +690,7 @@ Please confirm the availability for these dates.`;
                 </div>
               </div>
 
-              {/* Itinerary */}
+              {/* Itinerary 
               {tour.itinerary.length > 0 && (
                 <div className="mb-8">
                   <h3 className="text-2xl font-bold text-primary mb-4" data-testid="itinerary-title">Itinerary</h3>
@@ -702,6 +703,33 @@ Please confirm the availability for these dates.`;
                         <AccordionContent data-testid={`itinerary-content-${idx}`}>
                           <p className="text-gray-600">{day.description}</p>
                         </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              )}*/}
+              {tour.itinerary.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-primary mb-4" data-testid="itinerary-title">Itinerary</h3>
+                  <Accordion type="single" collapsible className="space-y-2">
+                    {tour.itinerary.map((item, idx) => (
+                      <AccordionItem key={idx} value={`item-${idx}`} className="border rounded-lg px-4 mb-2">
+                        <AccordionTrigger className="hover:no-underline py-3">
+                          <div className="flex items-baseline gap-2 text-left">
+                            {/* If 'day' exists, show Day X. Otherwise, show the Time. */}
+                            <span className="font-bold text-primary whitespace-nowrap">
+                              {item.day ? `Day ${item.day}:` : item.Time}
+                            </span>
+                            <span className="font-semibold text-gray-800">{item.title}</span>
+                          </div>
+                        </AccordionTrigger>
+                        
+                        {/* Only show content if a description exists */}
+                        {item.description && (
+                          <AccordionContent className="pb-4 text-gray-600 border-t pt-2">
+                            {item.description}
+                          </AccordionContent>
+                        )}
                       </AccordionItem>
                     ))}
                   </Accordion>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, Users, MapPin, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
 export default function TourCard({ tour }) {
   return (
@@ -14,7 +15,7 @@ export default function TourCard({ tour }) {
         <div className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-2xl transition-all duration-500">
           <div className="relative h-64 overflow-hidden">
             <img
-              src={tour.image_url}
+              src={`${BACKEND_URL}${tour.image_url}`}
               alt={tour.title}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               data-testid={`tour-card-image-${tour.id}`}
