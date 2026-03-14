@@ -18,7 +18,7 @@ export default function Navbar() {
           style={{ color: '#F28C1C' }} 
           data-testid="nav-logo"
         >
-          SahydriMates
+          SahyadriMates
         </Link>
         
         {/* Desktop Menu - Hidden on mobile */}
