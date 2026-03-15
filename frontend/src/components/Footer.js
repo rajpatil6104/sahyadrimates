@@ -55,12 +55,12 @@ export default function Footer() {
                 <Phone className="w-5 h-5 mt-1 flex-shrink-0" />
                 <div>
                   <a href="tel:+919156574952" className="text-gray-300 hover:text-accent transition-colors block">+91 9156574952</a>
-                  {/*<a href="tel:+917387642734" className="text-gray-300 hover:text-accent transition-colors block">+91 7387642734</a>*/}
+                  
                 </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 flex-shrink-0" />
-                <a href="mailto:info@trekhievers.com" className="text-gray-300 hover:text-accent transition-colors">info@trekhievers.com</a>
+                <a href="mailto:info@sahyadrimates.com" className="text-gray-300 hover:text-accent transition-colors">info@sahyadrimates.com</a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />

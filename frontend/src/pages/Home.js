@@ -68,10 +68,19 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-6xl md:text-8xl font-bold mb-6 text-shadow"
+            className="text-6xl md:text-8xl font-bold- mb-6 text-shadow"
             data-testid="hero-title"
           >
-            Discover Your Next Adventure
+            Discover Your Next Adventure With
+          </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-6xl font-bold- mb-6 text-shadow text-orange-400"
+            data-testid="hero-title"
+          >
+            SahyadriMates
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}

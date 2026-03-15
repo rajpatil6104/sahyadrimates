@@ -62,6 +62,7 @@ class Tour(BaseModel):
     category: str
     destination: str
     image_url: str
+    hero_background_image: Optional[str] = None
     images: List[str] = []
     inclusions: List[str] = []
     exclusions: List[str] = []

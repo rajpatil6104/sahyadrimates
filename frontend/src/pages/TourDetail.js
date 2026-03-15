@@ -623,9 +623,9 @@ Please confirm the availability for these dates.`;
       <Navbar />
 
       {/* Hero Image */}
-      <div className="relative h-[60vh]" data-testid="tour-hero">
+      <div className="relative h-[70vh] " data-testid="tour-hero">
         <img
-          src={`${BACKEND_URL}${tour.image_url}`}
+          src={`${BACKEND_URL}${tour.hero_background_image}`}
           alt={tour.title}
           className="w-full h-full object-cover"
         />
