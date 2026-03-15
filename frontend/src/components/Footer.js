@@ -41,10 +41,10 @@ export default function Footer() {
           <div>
             <h4 className="text-xl font-bold mb-6">Destinations</h4>
             <ul className="space-y-3">
-              <li><Link to="/tours?destination=Himachal Pradesh" className="text-gray-300 hover:text-accent transition-colors">Himachal Pradesh</Link></li>
+              <li><Link to="/tours?destination=Maharashtra" className="text-gray-300 hover:text-accent transition-colors">Maharashtra</Link></li>
               <li><Link to="/tours?destination=Uttarakhand" className="text-gray-300 hover:text-accent transition-colors">Uttarakhand</Link></li>
-              <li><Link to="/tours?destination=Rajasthan" className="text-gray-300 hover:text-accent transition-colors">Rajasthan</Link></li>
-              <li><Link to="/tours?destination=Kerala" className="text-gray-300 hover:text-accent transition-colors">Kerala</Link></li>
+              <li><Link to="/tours?destination=Srisailam" className="text-gray-300 hover:text-accent transition-colors">Srisailam</Link></li>
+              <li><Link to="/tours?destination=Hampi" className="text-gray-300 hover:text-accent transition-colors">Hampi</Link></li>
             </ul>
           </div>
 

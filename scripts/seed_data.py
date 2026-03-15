@@ -31,7 +31,7 @@ async def seed_database():
             'category': 'trek',
             'destination': 'Maharashtra',
             'image_url': '/images/tour/bhairavgad.jpg', 
-            'hero_background_image': '/images/tour/tour_hero/bhairavgad.png',
+            'hero_background_image': '/images/tour/tour_hero/bhairavgad.webp',
             'images': ['/images/tour/bhairavgad.jpg'],
             'inclusions': ['Transportation from Pune/Mumbai','Tea & Breakfast','Delicious lunch(Veg or Non-Veg)', 'Experienced & Certified leader', 'Frist aid kit', 'Safety equipment for climbing & rappelling'],
             'exclusions': ['Personal expenses', 'Travel insurance', 'Porter charges', 'Any meals not mentioned'],
@@ -67,7 +67,7 @@ async def seed_database():
             'category': 'trek',
             'destination': 'Maharashtra',
             'image_url': '/images/tour/kalavantindurg.png',
-            'hero_background_image': '/images/tour/tour_hero/kalavantindurg.png',
+            'hero_background_image': '/images/tour/tour_hero/kalavantindurg.webp',
             'images': ['images/tour/kalavantindurg.png'],
             'inclusions': ['Transportation from Pune/Mumbai','Tea & Breakfast','Delicious lunch(Veg or Non-Veg)', 'Experienced & Certified leader', 'Frist aid kit', 'Safety equipment for climbing & rappelling'],
             'exclusions': ['Personal expenses', 'Travel insurance', 'Porter charges', 'Any meals not mentioned'],
@@ -103,7 +103,7 @@ async def seed_database():
             'category': 'trek',
             'destination': 'Maharashtra',
             'image_url': '/images/tour/kalsubai.png',
-            'hero_background_image': '/images/tour/tour_hero/kalsubai.png',
+            'hero_background_image': '/images/tour/tour_hero/kalsubai.webp',
             'images': ['images/tour/kalsubai.png'],
             'inclusions': ['Transportation from Pune/Mumbai','Tea & Breakfast','Delicious lunch(Veg or Non-Veg)', 'Experienced & Certified leader', 'Frist aid kit', 'Safety equipment for climbing & rappelling'],
             'exclusions': ['Personal expenses', 'Travel insurance', 'Porter charges', 'Any meals not mentioned'],
@@ -138,7 +138,7 @@ async def seed_database():
             'category': 'tour',
             'destination': 'Srisailam',
             'image_url': '/images/tour/srisailam_mallikarjuna.jpg', 
-            'hero_background_image': '/images/tour/tour_hero/srisailam.png',
+            'hero_background_image': '/images/tour/tour_hero/srisailam.webp',
             'images': [],
             'inclusions': [
                 'Train Tickets', 
@@ -244,37 +244,7 @@ async def seed_database():
             'reviews_count': 342,
             'created_at': datetime.now(timezone.utc).isoformat()
         },
-        {
-            'id': 'tour-7',
-            'title': 'Manali Kasol Kheerganga Trek',
-            'slug': 'manali-kasol-kheerganga',
-            'description': 'Experience the magical Himalayan valleys with pristine forests, hot springs, and stunning mountain views. Perfect blend of adventure and relaxation.',
-            'price': 12999,
-            'original_price': 15999,
-            'duration': '6N/7D',
-            'category': 'trek',
-            'destination': 'Himachal Pradeshd',
-            'image_url': 'https://images.pexels.com/photos/35455016/pexels-photo-35455016.jpeg',
-            'hero_background_image': '/images/tour/tour_hero/manali.png',
-            'images': [],
-            'inclusions': ['Accommodation in camps/hotels', 'All meals (breakfast, lunch, dinner)', 'Experienced trek leader', 'Transport from Delhi', 'First aid kit'],
-            'exclusions': ['Personal expenses', 'Travel insurance', 'Porter charges', 'Any meals not mentioned'],
-            'itinerary': [
-                {'day': 1, 'title': 'Delhi to Manali', 'description': 'Overnight journey from Delhi to Manali by Volvo bus'},
-                {'day': 2, 'title': 'Manali Local Sightseeing', 'description': 'Explore Hadimba Temple, Vashisht hot springs, Mall Road'},
-                {'day': 3, 'title': 'Manali to Kasol', 'description': 'Drive to Kasol, explore the village and riverside'},
-                {'day': 4, 'title': 'Kasol to Kheerganga Trek', 'description': 'Trek to Kheerganga, enjoy hot springs'},
-                {'day': 5, 'title': 'Kheerganga to Kasol', 'description': 'Descend back to Kasol, leisure time'},
-                {'day': 6, 'title': 'Kasol to Delhi', 'description': 'Return journey to Delhi'}
-            ],
-            'available_dates': ['15 Jan 2025', '22 Jan 2025', '29 Jan 2025', '05 Feb 2025', '12 Feb 2025'],
-            'group_size': 20,
-            'difficulty': 'Moderate',
-            'featured': False,
-            'rating': 4.8,
-            'reviews_count': 127,
-            'created_at': datetime.now(timezone.utc).isoformat()
-        }
+        
     ]
     
     # Insert tours
